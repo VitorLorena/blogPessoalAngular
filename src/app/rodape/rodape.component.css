@@ -17,8 +17,10 @@ ul.social-network li{
 
 .fa-github:hover{
     color:  #171515;
+    font-size: 4rem;
 }
 
 .fa-linkedin-square:hover{
     color: #0072b1;
+    font-size: 4rem;
 }
