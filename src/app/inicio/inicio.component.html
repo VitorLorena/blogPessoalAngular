@@ -30,17 +30,17 @@
 
 <div class="container mb-5 mt-5" id="postagens">
 
-<nav *ngIf='listaPostagens.length != 0'>
+<nav>
   <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
 
     <a class="nav-item nav-link active text-secondary font-weight-bold"
-      id="nav-todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab"
+      id="nav-todasPostagens-tab" data-toggle="tab" href="#nav-todasPostagens" role="tab"
       aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
 
 
-    <a (click)='findByIdUser()'
+    <a (click)="findByIdUser()"
       class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab"
-      href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas
+      href="#nav-minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas
       Postagens</a>
 
     <a class="nav-item nav-link text-secondary font-weight-bold"
@@ -50,43 +50,39 @@
   </div>
 </nav>
 
-<h2 *ngIf='listaPostagens.length == 0' class="text-center text-secondary mt-5">
-  Não existem postagens ainda...
-</h2>
-
 <div class="tab-content mt-5" id="nav-tabContent">
 
-  <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="nav-todasPostagens-tab">
+  <div
+      class="tab-pane fade show active"
+      id="todasPostagens"
+      role="tabpanel"
+      aria-labelledby="todasPostagens-tab"
+    >
+      <div class="row d-flex justify-content-center">
+        <div
+        *ngFor='let item of listaPostagens' class="card text-center w-25 mx-4 my-2 border border-dark"
+          
+        >
+          <div class="card-body">
+            <h5 class="card-title m-0">{{ item.titulo }}</h5>
+            <small class="text-muted"> Tema: {{ item.tema.descricao }}</small>
+            <p class="card-text mt-3">{{ item.texto }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                {{ item.date | date: 'dd/MM/yyyy' }} às
+                {{ item.date | date: 'HH:mm' }}
+              </small>
+            </p>
 
-    <div class="row d-flex justify-content-center mt-5 mb-5">
-      <div class="col-md-4">
-        <div class="form-group">
-          <input type="text" class="form-control" id="titulo" placeholder="Digite um titulo de postagem para pesquisar">
+            <p class="card-text">
+              <small class="text-muted"> by: {{user.nome}} </small>
+            </p>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="card-columns">
-      <div class="card text-center"
-      *ngFor='let item of listaPostagens'>
-        <div class="card-body">
-          <h5 class="card-title m-0">{{item.titulo}}</h5>
-          <small class="text-muted"> Tema: {{item.tema.descricao}}</small>
-          <p class="card-text mt-3">{{item.texto}}</p>
-          <p class="card-text"><small class="text-muted">
-              {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
-            </small></p>
-
-          <p class="card-text"><small class="text-muted">
-              by: {{item.usuario.nome}}
-            </small></p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
+  <div class="tab-pane fade" id="nav-minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
 
 
     <div class="card-columns">
@@ -96,8 +92,11 @@
           <small class="text-muted"> Tema: {{item.tema.descricao}}</small>
           <p class="card-text mt-3">{{item.texto}}</p>
           <p class="card-text"><small class="text-muted">
-              {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
-            </small></p>
+              {{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}
+            </small>
+          
+            <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
+            <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a></p>
 
         </div>
       </div>
@@ -123,11 +122,11 @@
           <h5 class="card-title m-0">{{item.titulo}}</h5>
           <p class="card-text mt-3">{{item.texto}}</p>
           <p class="card-text"><small class="text-muted">
-              {{item.data | date: 'dd/MM/yyyy'}} às {{item.data | date: 'HH:mm'}}
+              {{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}
             </small></p>
 
           <p class="card-text"><small class="text-muted">
-              by: {{item.usuario.nome}}
+              by: {{user.nome}}
             </small></p>
 
         </div>
@@ -166,9 +165,9 @@
         </div>
 
         <div class="form-group">
-          <label for="texto">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema'>cadastre um novo</a>:
+          <label for="tema">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema'>cadastre um novo</a>:
           </label>
-          <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' (change)='findByIdTema'>
+          <select name="tema" id="tema" class="form-control" [(ngModel)]='idTema' (change)='findByIdTema()'>
             <option *ngFor='let item of listaTemas' value="{{item.id}}">{{item.descricao}}
             </option>
           </select>

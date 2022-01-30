@@ -15,8 +15,8 @@ import { TemaService } from '../service/tema.service';
 })
 export class InicioComponent implements OnInit {
 
-  postagem: Postagem = new  Postagem()
   listaPostagens: Postagem[]
+  postagem: Postagem = new  Postagem()
   
   tema: Tema = new Tema()
   listaTemas: Tema[]
@@ -34,10 +34,12 @@ export class InicioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.scroll(0,0)
 
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     }
+    this.authService.refreshToken()
     this.getAllTemas()
     this.getAllPostagens()
   }
