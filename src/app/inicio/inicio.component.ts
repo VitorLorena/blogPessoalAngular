@@ -36,6 +36,10 @@ export class InicioComponent implements OnInit {
   ngOnInit() {
     window.scroll(0,0)
 
+    this.authService.refreshToken
+    this.postagemService.refreshToken
+    this.temaService.refreshToken
+
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     }
