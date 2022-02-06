@@ -1,9 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Rowdies:wght@700&display=swap');
+
 #img-bg{
-    background-image: url('https://i.imgur.com/IRlDAfC.jpg');
+    background-image: url('https://i.imgur.com/V7xDaUN.jpg');
 
     min-height: 100vh;
 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.pl-login {
+    background-color: #F1F0E9;
+    padding: 70px 0;
+  }
+
+.ps-login {
+    align-items: center;
+    justify-content: center;
+}
+
+.conta{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+}
+
+.criarconta{
+    color: #bbbbbb
+
+}
+
+.criarconta:hover{
+    color: rgb(00, 00, 00)
+
+}
+
+.fl{
+    font-family: 'Rowdies', cursive;
+}
+
+.cc{
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Rowdies', cursive;
 }

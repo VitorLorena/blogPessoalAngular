@@ -2,34 +2,33 @@
 
     <div class="row d-flex align-items-center">
 
-        <div class="col-md-6">
+        <div class="col-md-3">
 
             <div class="row d-flex justify-content-center">
-                <div class="col-md-6">
+                <div class="col-md-8">
 
-                    <h1 class="text-center mb-3">Entrar</h1>
+                    <h1 class="text-center fl">Fazer login</h1>
 
-                    <div class="form-group">
-                        <label for="usuario">Usuário</label>
+                    <div class="form-group mt-5">
+                        <label class="fl" for="usuario">E-mail</label>
                         <input [(ngModel)]='userLogin.usuario' class="form-control" type="text" name="usuario" id="usuario"
-                        placeholder="Seu usuário">
+                        placeholder="Seu e-mail">
                     </div>
 
-                    <div class="form-group">
-                        <label for="senha">Senha</label>
+                    <div class="form-group mb-5">
+                        <label class="fl" for="senha">Senha</label>
                         <input [(ngModel)]='userLogin.senha' class="form-control" type="password" name="senha" id="senha"
                         placeholder="Sua senha">
                     </div>
 
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-success" (click)='entrar()'>Entrar</button>
+                    <div class="d-flex justify-content-center mt-5 mb-5" id="buttom_logar">
+                        <button type="submit" class="btn btn-outline-dark btn-lg mt-5 mb-5" (click)='entrar()'><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                     </div>
-
+        
                     <hr class="mt-5 mb-5">
-
-                    <p class="text-center">
-                        Não tem uma conta? <a routerLink="/cadastrar">Cadastre-se</a>
-                    </p>
+        
+                    
+                      <a class="conta criarconta fl" routerLink="/cadastrar">CRIAR CONTA</a>
 
                 </div>
 
@@ -37,7 +36,7 @@
 
         </div>
 
-        <div class="col-md-6" id="img-bg">
+        <div class="col-md-9" id="img-bg">
 
         </div>
 
