@@ -1,21 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark cormenu">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
       <span class="navbar-toggler-icon"></span>
     </button>
   
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-      <ul class="navbar-nav mr-auto d-flex align-items-center">
-
+    <div class="collapse navbar-collapse d-flex" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav d-flex ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
             <img src="{{foto}}" alt="Imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-right" aria-labelledby="navbarDropdownMenuLink">
             <a [routerLink]="['/user-edit', id]">
-              <p class="dropdown-item">Editar Perfil</p>
+              <p class="dropdown-item fl">Editar Perfil</p>
           </a>
             <li><hr class="dropdown-divider"></li>
-            <a (click)='sair()' class="dropdown-item"> Sair</a>
+            <a (click)='sair()' class="dropdown-item fl"> Sair</a>
           </div>
         </li>
 

@@ -9,14 +9,18 @@ ul.social-network li{
     padding: 5px;
 }
 
+.corodape{
+    background: #1D1E1B;
+}
+
 .fa{
-    font-size: 20pt;
+    font-size: 3vh;
     color: white;
-    padding: 5px;
+    padding: 0px;
 }
 
 .fa-github:hover{
-    color:  #171515;
+    color:  gray;
 }
 
 .fa-linkedin-square:hover{

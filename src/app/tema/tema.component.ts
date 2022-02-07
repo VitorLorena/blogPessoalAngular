@@ -14,6 +14,8 @@ export class TemaComponent implements OnInit {
   tema: Tema = new Tema()
   listaTemas: Tema[]
 
+  idTema: number
+
   constructor(
     private router: Router,
     private temaService: TemaService
@@ -27,6 +29,12 @@ export class TemaComponent implements OnInit {
     this.findAllTemas()
   }
 
+  findByIdTema(){
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) =>{
+      this.tema = resp
+    })
+  }
+  
   findAllTemas(){
     this.temaService.getAllTema().subscribe((resp: Tema[]) => {
       this.listaTemas = resp

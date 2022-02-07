@@ -1,4 +1,10 @@
+.cormenu{
+    background: #1D1E1B;
+}
 
+.fl{
+    font-family: 'Rowdies', cursive;
+}
 
 .fs-16
 {
@@ -7,4 +13,8 @@
 
 a{
     cursor: pointer;
+}
+
+ul{
+    color: #F1F0E9;
 }
