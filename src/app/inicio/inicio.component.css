@@ -1,0 +1,49 @@
+.fl{
+    font-family: 'Rowdies', cursive;
+}
+
+.cancelar {
+    border-color: red;
+    border-width: 2px;
+    border-style: solid;
+    color: red;
+}
+
+.cancelar:hover {
+    border-color: red;
+    background: red;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.publica {
+    border-color: #0f0e0c;
+    border-width: 2px;
+    border-style: solid;
+    color: #0f0e0c;
+}
+
+.publica:hover {
+    border-color: #0f0e0c;
+    background: #0f0e0c;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.pl{
+    background: #494E5B;
+}
+
+.postagem:hover{
+    border-color: #0f0e0c;
+    background: #0f0e0c;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.tamanho{
+    height: 70vh;
+}
