@@ -15,12 +15,15 @@ import { TemaService } from '../service/tema.service';
 })
 export class InicioComponent implements OnInit {
 
+  nome = environment.nome
+  
   listaPostagens: Postagem[]
   postagem: Postagem = new  Postagem()
   
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
+  nomeTema: string
 
   user: User = new User()
   idUser = environment.id
@@ -35,6 +38,10 @@ export class InicioComponent implements OnInit {
 
   ngOnInit() {
     window.scroll(0,0)
+
+    this.authService.refreshToken()
+    this.postagemService.refreshToken()
+    this.temaService.refreshToken()
 
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
@@ -81,6 +88,16 @@ export class InicioComponent implements OnInit {
       this.postagem = new Postagem()
       this.getAllPostagens()
     })
+  }
+
+  findbyNomeTema(){
+    if(this.nomeTema == ''){
+      this.getAllTemas
+    }else{
+      this.temaService.getByNomeTema(this.nomeTema).subscribe((resp: Tema[])=>{
+        this.listaTemas = resp
+      })
+    }
   }
 
 }

@@ -24,15 +24,15 @@ export class AuthService {
     }}
 
   entrar(userLogin: UserLogin): Observable<UserLogin>{
-    return this.http.post<UserLogin>('https://nomedoprojetovl.herokuapp.com/usuarios/logar', userLogin)
+    return this.http.post<UserLogin>('https://blogvitor.herokuapp.com/usuarios/logar', userLogin)
   }
 
   cadastrar(user: User): Observable<User>{
-    return this.http.post<User>('https://nomedoprojetovl.herokuapp.com/usuarios/cadastrar', user)
+    return this.http.post<User>('https://blogvitor.herokuapp.com/usuarios/cadastrar', user)
   }
 
   getByIdUser(id: number): Observable<User>{
-    return this.http.get<User>(`https://nomedoprojetovl.herokuapp.com/usuarios/${id}`, this.token)
+    return this.http.get<User>(`https://blogvitor.herokuapp.com/usuarios/${id}`, this.token)
   }
 
   logado(){

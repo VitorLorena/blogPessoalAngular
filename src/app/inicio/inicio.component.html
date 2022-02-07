@@ -5,8 +5,9 @@
 
           <div class="row d-flex justify-content-center">
               <div class="col-md-6 text-white">
-                  <h1 class="fs-54">Seja bem vindo(a)!</h1>
-                  <h5 class="fs-18">Expresse aqui os seus pensamentos e opniões!</h5>
+                <h4 class="fs-50">Olá, {{nome}}</h4>
+                  <h3 class="fs-30">Seja bem vindo(a)!</h3>
+                  <h5 class="fs-15">Expresse aqui os seus pensamentos e opniões!</h5>
               </div>
           </div>
 
@@ -30,39 +31,56 @@
 
 <div class="container mb-5 mt-5" id="postagens">
 
-<nav>
-  <div class="nav nav-tabs d-flex justify-content-center" id="nav-tab" role="tablist">
+<ul
+class="nav nav-tabs d-flex justify-content-center w-100"
+id="myTab"
+role="tablist"
+>
+<li class="nav-item" role="presentation">
+  <a
+    class="nav-link active text-secondary font-weight-bold"
+    id="todasPostagens-tab"
+    data-toggle="tab"
+    href="#todasPostagens"
+    role="tab"
+    aria-controls="todasPostagens"
+    aria-selected="true"
+    >Todas as Postagens</a
+  >
+</li>
+<li class="nav-item" role="presentation">
+  <a
+    (click)="findByIdUser()"
+    class="nav-link text-secondary font-weight-bold"
+    id="minhasPostagens-tab"
+    data-toggle="tab"
+    href="#minhasPostagens"
+    role="tab"
+    aria-controls="minhasPostagens"
+    aria-selected="false"
+    >Minhas Postagens</a
+  >
+</li>
+<li class="nav-item" role="presentation">
+  <a
+    class="nav-link text-secondary font-weight-bold"
+    id="postagensTema-tab"
+    data-toggle="tab"
+    href="#postagensTema"
+    role="tab"
+    aria-controls="postagensTema"
+    aria-selected="false"
+    >Postagens por tema</a
+  >
+</li>
+</ul>
 
-    <a class="nav-item nav-link active text-secondary font-weight-bold"
-      id="nav-todasPostagens-tab" data-toggle="tab" href="#nav-todasPostagens" role="tab"
-      aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
-
-
-    <a (click)="findByIdUser()"
-      class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab" data-toggle="tab"
-      href="#nav-minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas
-      Postagens</a>
-
-    <a class="nav-item nav-link text-secondary font-weight-bold"
-      id="nav-postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab" aria-controls="nav-postagemTema"
-      aria-selected="false">Postagens por tema</a>
-
-  </div>
-</nav>
 
 <div class="tab-content mt-5" id="nav-tabContent">
-
-  <div
-      class="tab-pane fade show active"
-      id="todasPostagens"
-      role="tabpanel"
-      aria-labelledby="todasPostagens-tab"
-    >
+ <!-- !Inicio do todas as postagens -->
+  <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel" aria-labelledby="todasPostagens-tab">
       <div class="row d-flex justify-content-center">
-        <div
-        *ngFor='let item of listaPostagens' class="card text-center w-25 mx-4 my-2 border border-dark"
-          
-        >
+        <div *ngFor='let item of listaPostagens' class="card text-center w-25 mx-4 my-2 border border-dark">
           <div class="card-body">
             <h5 class="card-title m-0">{{ item.titulo }}</h5>
             <small class="text-muted"> Tema: {{ item.tema.descricao }}</small>
@@ -75,14 +93,16 @@
             </p>
 
             <p class="card-text">
-              <small class="text-muted"> by: {{user.nome}} </small>
+              <small class="text-muted"> by: {{item.usuario.nome}} </small>
             </p>
           </div>
         </div>
       </div>
     </div>
-
-  <div class="tab-pane fade" id="nav-minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
+ <!-- !Fim do todas as postagens -->
+  
+ <!-- ? inicio minhas postagens -->
+ <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="minhasPostagens-tab">
 
 
     <div class="card-columns">
@@ -93,24 +113,27 @@
           <p class="card-text mt-3">{{item.texto}}</p>
           <p class="card-text"><small class="text-muted">
               {{item.date | date: 'dd/MM/yyyy'}} às {{item.date | date: 'HH:mm'}}
-            </small>
-          
+            </small></p>
+
             <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
-            <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a></p>
+            <a [routerLink]="['/postagem-delete', item.id]" class="text-danger" href="">Apagar</a>
 
         </div>
       </div>
     </div>
 
   </div>
+<!-- ? inicio minhas postagens -->
 
-  <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="nav-postagemTema-tab">
+ <!-- ! inicio postagens por tema  -->
+  <div class="tab-pane fade" id="postagensTema" role="tabpanel" aria-labelledby="postagensTema-tab">
 
-    <div class="row d-flex justify-content-center">
+    <div *ngIf="listaPostagens.length != 0" class="row d-flex justify-content-center">
       <div class="col-md-4">
 
         <div class="form-group mb-5">
-          <input type="text" class="form-control" id="tituloPesquisa" placeholder="Digite um tema para pesquisar">
+          <input type="text" class="form-control" id="titulo" placeholder="Digite um tema para pesquisar"
+          [(ngModel)]="nomeTema" (keyup)="findbyNomeTema()">
         </div>
 
       </div>
@@ -126,7 +149,7 @@
             </small></p>
 
           <p class="card-text"><small class="text-muted">
-              by: {{user.nome}}
+              by: {{item.usuario.nome}}
             </small></p>
 
         </div>
@@ -134,6 +157,8 @@
     </div>
 
   </div>
+   <!-- ! inicio postagens por tema  -->
+
 </div>
 
 </div>

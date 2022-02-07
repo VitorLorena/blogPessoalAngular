@@ -1,9 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Rowdies:wght@700&display=swap');
+
 #img-bg{
-    background-image: url('https://i.imgur.com/IRlDAfC.jpg');
+    background-image: url('https://i.imgur.com/V7xDaUN.jpg');
 
     min-height: 100vh;
 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.login {
+    border-color: gray;
+    border-width: 2px;
+    border-style: solid;
+    color: gray;
+  }
+  
+  .login:hover {
+    border-color: #0f0e0c;
+    background: #0f0e0c;
+    transform: scale(1.3);
+    transition: all 0.3s ease;
+    color: white;
+  }
+
+
+
+.conta{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+}
+
+.criarconta{
+    color: #bbbbbb
+
+}
+
+.criarconta:hover{
+    color: rgb(00, 00, 00)
+
+}
+
+.fl{
+    font-family: 'Rowdies', cursive;
 }
