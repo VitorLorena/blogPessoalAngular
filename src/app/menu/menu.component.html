@@ -5,25 +5,20 @@
   
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
       <ul class="navbar-nav mr-auto d-flex align-items-center">
-        <li class="nav-item active">
-          <img src="{{foto}}" alt="Imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
-        </li>
-        <li class="nav-item pl-3">
-          <p class="m-0 font-weight-bold text-white fs-16">Olá, {{nome}}</p>
-        </li>
 
-        <li class="nav-item pl-3">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+            <img src="{{foto}}" alt="Imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a [routerLink]="['/user-edit', id]">
-                <p class="text-white fs-16 m-0"><i class="fa fa-pencil-square-o text-white fs-16" aria-hidden="true"></i></p>
-            </a>
+              <p class="dropdown-item">Editar Perfil</p>
+          </a>
+            <li><hr class="dropdown-divider"></li>
+            <a (click)='sair()' class="dropdown-item"> Sair</a>
+          </div>
         </li>
-       </ul>
 
-       <ul class="navbar-nav ml-auto d-flex align-items-center">
-        <li class="nav-item pl-3">
-            <a (click)='sair()' class="m-0 font-weight-bold text-white fs-16">Sair <i class="fa fa-sign-out" aria-hidden="true"></i>
-            </a>
-        </li>
        </ul>
       
     </div>
