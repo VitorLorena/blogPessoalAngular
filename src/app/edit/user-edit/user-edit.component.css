@@ -1,0 +1,37 @@
+.fl{
+    font-family: 'Rowdies', cursive;
+}
+
+.tamanho{
+    height: 72vh;
+}
+
+.cancelar {
+    border-color: red;
+    border-width: 2px;
+    border-style: solid;
+    color: red;
+}
+
+.cancelar:hover {
+    border-color: red;
+    background: red;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.editar {
+    border-color: #0f0e0c;
+    border-width: 2px;
+    border-style: solid;
+    color: #0f0e0c;
+}
+
+.editar:hover {
+    border-color: #0f0e0c;
+    background: #0f0e0c;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+    color: white;
+}
