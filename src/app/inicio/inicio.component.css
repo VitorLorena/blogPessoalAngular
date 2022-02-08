@@ -17,14 +17,14 @@
     color: white;
 }
 
-.publica {
+.publicar {
     border-color: #0f0e0c;
     border-width: 2px;
     border-style: solid;
     color: #0f0e0c;
 }
 
-.publica:hover {
+.publicar:hover {
     border-color: #0f0e0c;
     background: #0f0e0c;
     transform: scale(0.9);
@@ -33,12 +33,12 @@
 }
 
 .pl{
-    background: #494E5B;
+    background: #6C757D;
 }
 
 .postagem:hover{
-    border-color: #0f0e0c;
-    background: #0f0e0c;
+    border-color: white;
+    background: #6C757D;
     transform: scale(1.1);
     transition: all 0.3s ease;
     color: white;
